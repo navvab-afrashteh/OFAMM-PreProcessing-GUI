@@ -22,7 +22,7 @@ function varargout = ImageStackPreProcessing_GUI(varargin)
 
 % Edit the above text to modify the response to help ImageStackPreProcessing_GUI
 
-% Last Modified by GUIDE v2.5 16-Jul-2019 17:31:17
+% Last Modified by GUIDE v2.5 09-Feb-2017 19:05:55
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -1083,10 +1083,8 @@ end
 
 
 function MaxDispVal_Callback(hObject, eventdata, handles)
-maxVal = inf;
-minVal = str2num(get(handles.MinDispVal,'string'));
-MaxDispVal_default = 1;
-handles.MaxVal = Str2NumFromHandle(hObject,MaxDispVal_default,maxVal,minVal);
+MaxDispVal_default = str2num(get(handles.MinDispVal,'string'));
+handles.MaxVal = Str2NumFromHandle(hObject,MaxDispVal_default);
 % if handles.MaxVal < handles.MinVal
 %     handles.MinVal = handles.MaxVal - 1;
 %     set(handles.MinDispVal,'String',handles.MinVal)
@@ -1513,10 +1511,3 @@ slashPos = find(GUIfilePath == '\');
 PathName = GUIfilePath(1:slashPos(end));
 ReadmePathName = [PathName 'Readme.txt'];
 eval(['!notepad ' ReadmePathName])
-
-
-% --- Executes when figure1 is resized.
-function figure1_ResizeFcn(hObject, eventdata, handles)
-% hObject    handle to figure1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)

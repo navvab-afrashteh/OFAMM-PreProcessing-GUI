@@ -44,7 +44,7 @@ if strcmp(get(h,'Tag'),'WinSizeMedian')
             Num(2) = DefaultNum(2);
         end
     end
-elseif ~strcmp(get(h,'Tag'),'MinDispVal') && ~strcmp(get(h,'Tag'),'MaxDispVal')
+elseif 
     str = str(str~=' ');
     [Num, status] = str2num(str);
     if ~status || Num <= 0
@@ -52,8 +52,6 @@ elseif ~strcmp(get(h,'Tag'),'MinDispVal') && ~strcmp(get(h,'Tag'),'MaxDispVal')
     end
 end
 if strcmp(get(h,'Tag'),'MinDispVal') || strcmp(get(h,'Tag'),'MaxDispVal')
-    str = str(str~=' ');
-    [Num, status] = str2num(str);
     if Num >= maxVal
         Num = sign(maxVal)*abs(maxVal)/2;
     end
